@@ -1,0 +1,13 @@
+master:
+  image: markauskas/jenkins-master
+  ports:
+    - "8080:8080"
+    - "50000:50000"
+  volumes:
+    - "./var_jenkins_home:/var/jenkins_home"
+slave:
+  image: markauskas/jenkins-slave
+  links:
+    - master
+  environment:
+    - JENKINS_MASTER=http://master:8080/
