@@ -1,0 +1,7 @@
+syslog:
+  build: .
+  dockerfile: Dockerfile
+  volumes:
+    - ".:/srv/syslog"
+  ports:
+    - "514:514/udp"
